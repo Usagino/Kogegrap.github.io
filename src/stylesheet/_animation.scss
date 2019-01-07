@@ -1,0 +1,57 @@
+@keyframes fadein{
+  0%{
+
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
+}
+.fadein{
+  animation: fadein .8s ease 0s forwards;
+}
+.home__secondAnime{
+  .home__second__wrap{
+    &__textbox{
+      & > *{
+        opacity: 1 !important;
+      }
+    }
+  }
+}
+@keyframes fadeout{
+  0%{
+    transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(100%);
+  }
+}
+.fadeout{
+  animation: fadeout .5s ease 0s forwards;
+}
+
+@keyframes afterfadein{
+  0%{
+
+    transform: translateY(-100%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
+}
+.afterfadein{
+  animation: afterfadein .8s ease 0s forwards;
+}
+
+@keyframes afterfadeout{
+  0%{
+    transform: translateY(0%);
+  }
+  100%{
+    transform: translateY(-100%);
+  }
+}
+.afterfadeout{
+  animation: afterfadeout .5s ease 0s forwards;
+}
