@@ -19,156 +19,44 @@ p {
   color: #5c5c5c;
   letter-spacing: 0.1em; }
 
-@keyframes width {
-  100% {
-    width: 100%; } }
-
-@keyframes height {
-  100% {
-    height: 100%; } }
-
-.move_top {
-  opacity: 0;
-  animation: move_top 1000ms ease-out 300ms forwards; }
-
-.move_bottom {
-  opacity: 0;
-  animation: move_bottom 1000ms ease-out 300ms forwards; }
-
-.move_left {
-  opacity: 0;
-  animation: move_left 1000ms ease-out 300ms forwards; }
-
-.move_right {
-  opacity: 0;
-  animation: move_right 1000ms ease-out 300ms forwards; }
-
-@keyframes move_top {
+@keyframes fadein {
   0% {
-    transform: translateY(30px); }
+    transform: translateY(100%); }
   100% {
-    opacity: 1;
-    transform: translateY(0px); } }
+    transform: translateY(0%); } }
 
-@keyframes move_bottom {
+.fadein {
+  animation: fadein .8s ease 0s forwards; }
+
+.home__secondAnime .home__second__wrap__textbox > * {
+  opacity: 1 !important; }
+
+@keyframes fadeout {
   0% {
-    transform: translateY(-30px); }
+    transform: translateY(0%); }
   100% {
-    opacity: 1;
-    transform: translateY(0px); } }
+    transform: translateY(100%); } }
 
-@keyframes move_left {
-  0% {
-    transform: translateX(30px); }
-  100% {
-    opacity: 1;
-    transform: translateX(0px); } }
+.fadeout {
+  animation: fadeout .5s ease 0s forwards; }
 
-@keyframes move_right {
-  0% {
-    transform: translateX(-30px); }
-  100% {
-    opacity: 1;
-    transform: translateX(0px); } }
-
-.translateX {
-  transform: translateX(-100%);
-  animation: contact_anime 500ms ease 0s forwards; }
-
-.translateX_double {
-  transform: translateX(-200%);
-  animation: contact_anime 1000ms ease 300ms forwards; }
-
-@keyframes contact_anime {
-  100% {
-    opacity: 1;
-    transform: translateX(0%); } }
-
-@keyframes menu_anime {
-  100% {
-    transform: rotateX(160px); } }
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
-@keyframes minus_rotate {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(-360deg); } }
-
-.phone-after {
-  transform: translateX(0%) !important; }
-
-.hamburger-top-after {
-  transform: rotate(45deg); }
-
-.hamburger-middle-after {
-  transform: translateX(100vw); }
-
-.hamburger-bottom-after {
-  transform: rotate(-45deg); }
-
-.hamburger-top-anime {
-  animation: hamburger-bar 700ms ease 100ms forwards; }
-
-.hamburger-middle-anime {
-  animation: hamburger-bar 700ms ease 300ms forwards; }
-
-.hamburger-bottom-anime {
-  animation: hamburger-bar 700ms ease 600ms forwards; }
-
-@keyframes hamburger-bar {
-  0% {
-    transform: scaleX(1); }
-  50% {
-    transform: scaleX(0.5) rotate(-10deg); }
-  100% {
-    transform: scaleX(1); } }
-
-.scroll {
-  width: 50px;
-  height: 100px;
-  position: relative;
-  overflow: hidden; }
-  .scroll-bar {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 4px;
-    height: 60%;
-    background: black;
-    transform: translateY(-100%); }
-  .scroll-bar1 {
-    background: #5c5c5c;
-    animation: scroll-bar 1.5s linear 0s infinite normal; }
-  .scroll-bar2 {
-    background: black;
-    animation: scroll-bar 1.5s linear 0.75s infinite normal; }
-
-@keyframes scroll-bar {
+@keyframes afterfadein {
   0% {
     transform: translateY(-100%); }
   100% {
-    transform: translateY(160%); } }
+    transform: translateY(0%); } }
 
-@keyframes scale-bar {
-  0% {
-    width: 0%; }
-  100% {
-    width: 100%; } }
+.afterfadein {
+  animation: afterfadein .8s ease 0s forwards; }
 
-@keyframes scale {
+@keyframes afterfadeout {
   0% {
-    transform: scale(0); }
+    transform: translateY(0%); }
   100% {
-    transform: scale(1); } }
+    transform: translateY(-100%); } }
+
+.afterfadeout {
+  animation: afterfadeout .5s ease 0s forwards; }
 
 body, div, dl, dt, dd, p, ul, ol, li, form, textarea, input, table, th, tr, td, h1, h2, h3, h4, h5, blockquote, figure {
   margin: 0;
@@ -205,7 +93,11 @@ a {
 
 img {
   border: 0;
-  vertical-align: bottom; }
+  vertical-align: bottom;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
 
 input, select {
   vertical-align: middle; }
@@ -216,10 +108,91 @@ input, select {
   display: block;
   clear: both; }
 
-.news_body_sentence_titlebox {
-  height: 100vh;
+h1 {
+  font-family: 'Noto Serif JP','Raleway', sans-serif;
+  font-size: 2rem; }
+
+p, li, a {
+  font-family: 'Noto Serif JP','Noto Sans JP','Noto Sans', sans-serif; }
+
+p {
+  line-height: 1.7rem; }
+
+header {
+  position: fixed;
+  z-index: 999; }
+  header p {
+    margin: 1rem;
+    color: #fffcff;
+    font-weight: bold;
+    letter-spacing: 0.3rem; }
+
+.home > * {
   width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
+  /* 子要素をflexboxで揃える */
+  flex-direction: column;
+  /* 子要素をflexboxにより縦方向に揃える */
   justify-content: center;
+  /* 子要素をflexboxにより中央に配置する */
   align-items: center;
-  flex-direction: column; }
+  /* 子要素をflexboxにより中央に配置する */ }
+
+.home__first h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #080706; }
+
+.home__second {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  /* 子要素をflexboxで揃える */
+  flex-direction: column;
+  /* 子要素をflexboxにより縦方向に揃える */
+  justify-content: center;
+  /* 子要素をflexboxにより中央に配置する */
+  align-items: center;
+  /* 子要素をflexboxにより中央に配置する */
+  background: white; }
+  .home__second__wrap {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr; }
+    .home__second__wrap__imagebox {
+      background: #656adb;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      /* 子要素をflexboxで揃える */
+      flex-direction: column;
+      /* 子要素をflexboxにより縦方向に揃える */
+      justify-content: center;
+      /* 子要素をflexboxにより中央に配置する */
+      align-items: center;
+      /* 子要素をflexboxにより中央に配置する */ }
+      .home__second__wrap__imagebox--img {
+        width: 28rem;
+        height: auto; }
+    .home__second__wrap__textbox {
+      padding: 2rem 8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .home__second__wrap__textbox > * {
+        opacity: 0;
+        padding-bottom: 1.5rem; }
+      .home__second__wrap__textbox > h1 {
+        transition: all .6s ease 0.6s; }
+      .home__second__wrap__textbox > p {
+        transition: all .6s ease 1s; }
+      .home__second__wrap__textbox > ul {
+        transition: all .6s ease 1.4s; }
